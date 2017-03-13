@@ -12,6 +12,9 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<!-- Theme customizations -->
+		<link rel="stylesheet" href="css/custom/footer.css">
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -23,11 +26,24 @@
 	</head>
 	<body>
 		<div class="reveal">
+			<div class="footer">
+				<div class="branding--logo">
+					<span class="logo__image"><img src="img/summit-icon.png" alt="MidCamp logo" height="55px" /></span>
+					<p class="logo__site-name">#nerdsummit</p>
+				</div>
+				<div class="session--info">
+					<p class="session__title">Getting Your Content Where You Need It with JSON API <span>&nbsp;/&nbsp;</span></p>
+					<p class="session__presenter">Chris Hamper</p>
+				</div>
+			</div>
+
 			<div class="slides">
-				<section>
-					<h1>JSON API</h1>
+				<section data-state="first-slide">
+					<h1 style="text-transform: none !important">Getting Your Content Where You Need It</h1>
+					<h2 style="text-transform: none !important">- with -</h2>
+					<h1 style="text-transform: none !important">JSON API</h1>
 				</section>
-				<section>
+				<section data-state="past-first-slide">
 					<h2>What is JSON API?</h2>
 					<ul>
 						<li>Open standard</li>
@@ -160,6 +176,14 @@ Accept: application/vnd.api+json
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+            Reveal.addEventListener('first-slide', function() {
+              console.log( '"first-slide" has fired' );
+            });
+
+            Reveal.addEventListener('past-first-slide', function() {
+              console.log( '"past-first-slide" has fired' );
+            });
 		</script>
 	</body>
 </html>
