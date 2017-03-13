@@ -24,8 +24,120 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>JSON API</h1>
+				</section>
+				<section>
+					<h2>What is JSON API?</h2>
+					<ul>
+						<li>Open standard</li>
+						<li>Helps create RESTful APIs quickly and consistently</li>
+						<li>Describes a consistent format for exchanging interrelated data using JSON</li>
+						<li>Anti-bikeshedding tool</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Example JSON API Requests:</h2>
+					<pre><code data-trim data-noescape>
+GET /articles/1 HTTP/1.1
+Accept: application/vnd.api+json
+					</code></pre>
+					<pre><code data-trim data-noescape>
+GET /articles HTTP/1.1
+Accept: application/vnd.api+json
+					</code></pre>
+					<pre><code data-trim data-noescape>
+GET /articles/1/author HTTP/1.1
+Accept: application/vnd.api+json
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Example JSON API Response</h2>
+					<pre><code data-trim data-noescape>
+{
+  "data": {
+    "type": "articles",
+    "id": "1",
+    "attributes": {
+      "title": "Example JSON API Response"
+    },
+    "relationships": {
+      "author": {
+      	"data": { "type": "people", "id": "9" }
+      }
+    }
+  }
+}
+				</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Not just for reading data</h2>
+						<pre><code data-trim data-noescape>
+POST /articles HTTP/1.1
+Accept: application/vnd.api+json
+
+{
+  "data": {
+    "type": "articles",
+    "attributes": {
+      "title": "My New Article"
+    }
+    "relationships": {
+      "author": {
+      	"data": { "type": "people", "id": "42" }
+	  }
+    }
+  }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Not just for reading data</h2>
+						<pre><code data-trim data-noescape>
+PATCH /articles/1 HTTP/1.1
+Accept: application/vnd.api+json
+
+{
+  "data": {
+    "type": "articles",
+    "id": "1",
+    "attributes": {
+      "title": "The New Title!"
+    }
+}
+                    	</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>What can we do with it?</h2>
+					<br/>
+					<h3>Demonstration:</h3>
+					<ul>
+						<li>Drupal backend with JSON API contrib module</li>
+						<li>Ember.js frontend application</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Useful Links</h2>
+					<ul>
+						<li><a href="http://jsonapi.org">http://jsonapi.org</a></li>
+						<li><a href="https://www.drupal.org/project/jsonapi">https://www.drupal.org/project/jsonapi</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>More at NERD Summit!</h2>
+					<p>
+						March 18th at 3:00pm
+					</p>
+					<a href="http://nerdsummit.org/#getting-your-content-where-you-need-it-with-json-api">http://nerdsummit.org/#getting-your-content-where-you-need-it-with-json-api</a>
+				</section>
 			</div>
 		</div>
 
