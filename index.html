@@ -32,7 +32,7 @@
 					<p class="logo__site-name">#nerdsummit</p>
 				</div>
 				<div class="session--info">
-					<p class="session__title">Getting Your Content Where You Need It with JSON API <span>&nbsp;/&nbsp;</span></p>
+					<p class="session__title" id="session-title">Getting Your Content Where You Need It with JSON API <span>&nbsp;/&nbsp;</span></p>
 					<p class="session__presenter">Chris Hamper</p>
 				</div>
 			</div>
@@ -179,10 +179,12 @@ Accept: application/vnd.api+json
 
             Reveal.addEventListener('first-slide', function() {
               console.log( '"first-slide" has fired' );
+              window.top.document.querySelector(".footer .session__title").style.opacity = 0;
             });
 
             Reveal.addEventListener('past-first-slide', function() {
               console.log( '"past-first-slide" has fired' );
+              window.top.document.querySelector(".footer .session__title").style.opacity = 1;
             });
 		</script>
 	</body>

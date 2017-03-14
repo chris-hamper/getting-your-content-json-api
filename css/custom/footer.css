@@ -8,7 +8,7 @@
     margin-left: 1em;
     font-size: 0.5em;
     position: absolute;
-    bottom: 0em;
+    bottom: 0;
 }
 .footer .logo__image {
     display: inline-block;
@@ -21,9 +21,10 @@
     float: right;
     font-size: 0.5em;
     position: absolute;
-    bottom: 0em;
+    bottom: 0;
     right: 5em;
 }
 .footer .session__title, .footer .session__presenter {
     display: inline-block;
+    transition: opacity 0.5s ease-in-out 0.5s;
 }
