@@ -37,119 +37,175 @@
 			<div class="slides">
 				<section data-state="first-slide">
 					<h1 style="text-transform: none !important">Getting Your Content Where You Need It</h1>
-					<h2 style="text-transform: none !important">- with -</h2>
+					<h2 style="text-transform: none !important">&mdash; with &mdash;</h2>
 					<h1 style="text-transform: none !important">JSON API</h1>
 				</section>
+
 				<section data-state="past-first-slide">
 					<h2>What is JSON API?</h2>
 					<ul>
 						<li>Open standard</li>
 						<li>Helps create RESTful APIs quickly and consistently</li>
-						<li>Describes a consistent format for exchanging interrelated data using JSON</li>
+						<li>Describes a consistent format for exchanging interrelated data</li>
 						<li>Anti-bikeshedding tool</li>
 					</ul>
 				</section>
 
-				<section>
-					<h2>Example JSON API Requests:</h2>
-					<pre><code data-trim data-noescape>
-GET /articles/1 HTTP/1.1
-Accept: application/vnd.api+json
-					</code></pre>
-					<pre><code data-trim data-noescape>
-GET /articles HTTP/1.1
-Accept: application/vnd.api+json
-					</code></pre>
-					<pre><code data-trim data-noescape>
-GET /articles/1/author HTTP/1.1
-Accept: application/vnd.api+json
-					</code></pre>
-				</section>
+        <section>
+          <h2>JSON API Endpoints</h2>
+          Follow a very consistent, logical pattern:
+          <ul class="spaced">
+            <li class="fragment"><code>/article</code><br>
+              Get the collection of all "article" resources</li>
+            <li class="fragment"><code>/article/1</code><br>
+              Get article with ID of "1"</li>
+            <li class="fragment"><code>/article/1/author</code><br>
+              Get "author" resource related to article 1</li>
+          </ul>
+        </section>
 
-				<section>
-					<h2>Example JSON API Response</h2>
-					<pre><code data-trim data-noescape>
+        <section>
+          <h3>Example Request:</h3>
+          <pre><code data-trim data-noescape>
+GET /article/1 HTTP/1.1
+Accept: application/vnd.api+json
+					</code></pre>
+
+          <div class="fragment">
+  					<h3>Response:</h3>
+	  				<pre><code data-trim data-noescape>
 {
   "data": {
-    "type": "articles",
+    "type": "article",
     "id": "1",
     "attributes": {
-      "title": "Example JSON API Response"
+      "title": "Example JSON API Response",
+      "body": "Lorem ipsum dolor sit amet..."
     },
+
     "relationships": {
       "author": {
-      	"data": { "type": "people", "id": "9" }
+      	"data": { "type": "person", "id": "9" }
       }
     }
   }
 }
-				</code></pre>
+				    </code></pre>
+          </div>
 				</section>
+
+        <section>
+          <h2>JSON API CRUD Operations</h2>
+          <p>Follow RESTful API conventions:</p>
+          <ul style="list-style: none">
+            <li class="fragment"><code>&nbsp;&nbsp;POST</code> &rarr; Create new resource</li>
+            <li class="fragment"><code>&nbsp;&nbsp;&nbsp;GET</code> &rarr; Retrieve resource(s)</li>
+            <li class="fragment"><code>&nbsp;PATCH</code> &rarr; Update resource</li>
+            <li class="fragment"><code>DELETE</code> &rarr; Delete resource</li>
+            <p class="fragment">Only <code>GET</code> can involve multiple resources</p>
+          </ul>
+        </section>
 
 				<section>
 					<section>
-						<h2>Not just for reading data</h2>
+						<h2>Creating a New Resource</h2>
 						<pre><code data-trim data-noescape>
-POST /articles HTTP/1.1
+POST /article HTTP/1.1
 Accept: application/vnd.api+json
 
 {
   "data": {
-    "type": "articles",
+    "type": "article",
+
     "attributes": {
-      "title": "My New Article"
+      "title": "New Article"
+      "body": "Wow! JSON API rocks!"
     }
+
     "relationships": {
       "author": {
-      	"data": { "type": "people", "id": "42" }
-	  }
+      	"data": { "type": "person", "id": "42" }
+      }
     }
   }
 }
 						</code></pre>
 					</section>
 					<section>
-						<h2>Not just for reading data</h2>
+						<h2>Updating an Existing Resource</h2>
 						<pre><code data-trim data-noescape>
-PATCH /articles/1 HTTP/1.1
+PATCH /article/1 HTTP/1.1
 Accept: application/vnd.api+json
 
 {
   "data": {
-    "type": "articles",
+    "type": "article",
     "id": "1",
+
     "attributes": {
       "title": "The New Title!"
     }
 }
-                    	</code></pre>
+            </code></pre>
 					</section>
 				</section>
+
+        <section>
+          <h2>Advanced Resource Fetching</h2>
+          <p><strong>Caveat:</strong> implementation details are left up to the server</p>
+          <section></section>
+          <section>
+            <h3>Sorting Resources</h3>
+            <p>&nbsp;</p>
+            <pre><code data-trim data-noescape>
+GET /article?sort=title HTTP/1.1
+Accept: application/vnd.api+json
+            </code></pre>
+          </section>
+          <section>
+            <h3>Filtering Resources</h3>
+            <p>&nbsp;</p>
+            <pre><code data-trim data-noescape>
+GET /article?filter[uid][value]=42 HTTP/1.1
+Accept: application/vnd.api+json
+            </code></pre>
+            <pre class="fragment"><code data-trim data-noescape>
+GET /article?filter[by-created][condition][path]=created
+            &filter[by-created][condition][value]=303659276
+            &filter[by-created][condition][operator]=<
+            </code></pre>
+          </section>
+          <section>
+            <h3>Pagination</h3>
+            <p>&nbsp;</p>
+            <pre><code data-trim data-noescape>
+GET /article?page[offset]=20
+            &page[limit]=10
+            </code></pre>
+          </section>
+        </section>
 
 				<section>
 					<h2>What can we do with it?</h2>
 					<br/>
 					<h3>Demonstration:</h3>
 					<ul>
-						<li>Drupal backend with JSON API contrib module</li>
+						<li>Drupal 8 backend with JSON API contrib module</li>
 						<li>Ember.js frontend application</li>
 					</ul>
 				</section>
 
 				<section>
+          <p>&nbsp;</p>
 					<h2>Useful Links</h2>
 					<ul>
 						<li><a href="http://jsonapi.org">http://jsonapi.org</a></li>
 						<li><a href="https://www.drupal.org/project/jsonapi">https://www.drupal.org/project/jsonapi</a></li>
 					</ul>
-				</section>
-
-				<section>
-					<h2>More at NERD Summit!</h2>
-					<p>
-						March 18th at 3:00pm
-					</p>
-					<a href="http://nerdsummit.org/#getting-your-content-where-you-need-it-with-json-api">http://nerdsummit.org/#getting-your-content-where-you-need-it-with-json-api</a>
+          <section>
+            <p>&nbsp;</p>
+            <h2 class="fragment">Thank You!</h2>
+          </section>
 				</section>
 			</div>
 		</div>
