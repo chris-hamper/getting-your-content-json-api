@@ -1,0 +1,91 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #222;
+
+$mainColor: #ddd;
+$headingColor: #fff;
+
+$mainFontSize: 42px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #e7ad52;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: $linkColor;
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+@mixin radial-gradient-custom( $outer, $inner, $type: circle ) {
+	background: $inner;
+	background: radial-gradient( $type at center,  $inner 50%, $outer 100% );
+}
+
+// Background generator
+@mixin bodyBackground() {
+	@include radial-gradient-custom( #2a2a2a, #111 );
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+.footer {
+	color: #888;
+}
+
+.footer .branding--logo {
+	display: inline-block;
+	float: left;
+	margin-left: 1em;
+	font-size: 0.5em;
+	position: absolute;
+	bottom: 0;
+}
+.footer .logo__image {
+	display: inline-block;
+}
+.footer .logo__site-name {
+	display: inline-block;
+}
+.footer .session--info {
+	display: inline-block;
+	float: right;
+	font-size: 0.5em;
+	position: absolute;
+	bottom: 0;
+	right: 5em;
+}
+.footer .session__title, .footer .session__presenter {
+	display: inline-block;
+	transition: opacity 0.5s ease-in-out 0.5s;
+}
