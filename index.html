@@ -1,79 +1,89 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+  <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/custom.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/custom.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="footer">
-				<div class="branding--logo">
-					<span class="logo__image"><img src="img/summit-icon.png" alt="MidCamp logo" height="55px" /></span>
-					<p class="logo__site-name">#nerdsummit</p>
-				</div>
-				<div class="session--info">
-					<p class="session__title" id="session-title">Getting Your Content Where You Need It with JSON API <span>&nbsp;/&nbsp;</span></p>
-					<p class="session__presenter">Chris Hamper</p>
-				</div>
-			</div>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+<div class="reveal">
+  <div class="footer">
+    <div class="branding--logo">
+      <span class="logo__image"><img src="img/summit-icon.png" alt="MidCamp logo" height="55px" /></span>
+      <p class="logo__site-name">#nerdsummit</p>
+    </div>
+    <div class="session--info">
+      <p class="session__title" id="session-title">Getting Your Content Where You Need It with JSON API <span>&nbsp;/&nbsp;</span></p>
+      <p class="session__presenter">Chris Hamper</p>
+    </div>
+  </div>
 
-			<div class="slides">
-				<section data-state="first-slide">
-					<h1 style="text-transform: none !important">Getting Your Content Where You Need It</h1>
-					<h2 style="text-transform: none !important">&mdash; with &mdash;</h2>
-					<h1 style="text-transform: none !important">JSON API</h1>
-				</section>
+  <div class="slides">
+    <section data-state="first-slide">
+      <h1 style="text-transform: none !important">Getting Your Content Where You Need It</h1>
+      <h2 style="text-transform: none !important">&mdash; with &mdash;</h2>
+      <h1 style="text-transform: none !important">JSON API</h1>
+    </section>
 
-				<section data-state="past-first-slide">
-					<h2>What is JSON API?</h2>
-					<ul>
-						<li>Open standard</li>
-						<li>Helps create RESTful APIs quickly and consistently</li>
-						<li>Describes a consistent format for exchanging interrelated data</li>
-						<li>Anti-bikeshedding tool</li>
-					</ul>
-				</section>
+    <section data-state="past-first-slide">
+      <h2>What is JSON API?</h2>
+      <ul>
+        <li>Open standard</li>
+        <li>Helps create RESTful APIs quickly and consistently</li>
+        <li>Describes a consistent format for exchanging interrelated data using JSON</li>
+        <li>Anti-bikeshedding tool</li>
+      </ul>
+    </section>
 
-        <section>
-          <h2>JSON API Endpoints</h2>
-          Follow a very consistent, logical pattern:
-          <ul class="spaced">
-            <li class="fragment"><code>/article</code><br>
-              Get the collection of all "article" resources</li>
-            <li class="fragment"><code>/article/1</code><br>
-              Get article with ID of "1"</li>
-            <li class="fragment"><code>/article/1/author</code><br>
-              Get "author" resource related to article 1</li>
-          </ul>
-        </section>
+    <section data-state="past-first-slide">
+      <h2>What Does JSON API Enable?</h2>
+      <h3>Content/data interchange between two disparate systems</h3>
+      <ul>
+        <li class="fragment">Communicate across CMSs, JavaScript frameworks, etc.</li>
+        <li class="fragment">Decoupled frontend architectures</li>
+        <li class="fragment">Multi-channel content</li>
+      </ul>
+    </section>
 
-        <section>
-          <h3>Example Request:</h3>
-          <pre><code data-trim data-noescape>
+    <section>
+      <h2>JSON API Endpoints</h2>
+      Follow a very consistent, logical pattern:
+      <ul class="spaced">
+        <li class="fragment"><code>/article</code><br>
+          Get the collection of all "article" resources</li>
+        <li class="fragment"><code>/article/1</code><br>
+          Get article with ID of "1"</li>
+        <li class="fragment"><code>/article/1/author</code><br>
+          Get "author" resource related to article 1</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Example Request:</h3>
+      <pre><code data-trim data-noescape>
 GET /article/1 HTTP/1.1
 Accept: application/vnd.api+json
 					</code></pre>
 
-          <div class="fragment">
-  					<h3>Response:</h3>
-	  				<pre><code data-trim data-noescape>
+      <div class="fragment">
+        <h3>Response:</h3>
+        <pre><code data-trim data-noescape>
 {
   "data": {
     "type": "article",
@@ -92,25 +102,25 @@ Accept: application/vnd.api+json
   }
 }
 				    </code></pre>
-          </div>
-				</section>
+      </div>
+    </section>
 
-        <section>
-          <h2>JSON API CRUD Operations</h2>
-          <p>Follow RESTful API conventions:</p>
-          <ul style="list-style: none">
-            <li class="fragment"><code>&nbsp;&nbsp;POST</code> &rarr; Create new resource</li>
-            <li class="fragment"><code>&nbsp;&nbsp;&nbsp;GET</code> &rarr; Retrieve resource(s)</li>
-            <li class="fragment"><code>&nbsp;PATCH</code> &rarr; Update resource</li>
-            <li class="fragment"><code>DELETE</code> &rarr; Delete resource</li>
-          </ul>
-          <p class="fragment">Only <code>GET</code> can involve multiple resources</p>
-        </section>
+    <section>
+      <h2>JSON API CRUD Operations</h2>
+      <p>Follow RESTful API conventions:</p>
+      <ul style="list-style: none">
+        <li class="fragment"><code>&nbsp;&nbsp;POST</code> &rarr; Create new resource</li>
+        <li class="fragment"><code>&nbsp;&nbsp;&nbsp;GET</code> &rarr; Retrieve resource(s)</li>
+        <li class="fragment"><code>&nbsp;PATCH</code> &rarr; Update resource</li>
+        <li class="fragment"><code>DELETE</code> &rarr; Delete resource</li>
+      </ul>
+      <p class="fragment">Only <code>GET</code> can involve multiple resources</p>
+    </section>
 
-				<section>
-					<section>
-						<h2>Creating a New Resource</h2>
-						<pre><code data-trim data-noescape>
+    <section>
+      <section>
+        <h2>Creating a New Resource</h2>
+        <pre><code data-trim data-noescape>
 POST /article HTTP/1.1
 Accept: application/vnd.api+json
 
@@ -130,11 +140,11 @@ Accept: application/vnd.api+json
     }
   }
 }
-						</code></pre>
-					</section>
-					<section>
-						<h2>Updating an Existing Resource</h2>
-						<pre><code data-trim data-noescape>
+        </code></pre>
+      </section>
+      <section>
+        <h2>Updating an Existing Resource</h2>
+        <pre><code data-trim data-noescape>
 PATCH /article/1 HTTP/1.1
 Accept: application/vnd.api+json
 
@@ -147,109 +157,218 @@ Accept: application/vnd.api+json
       "title": "The New Title!"
     }
 }
-            </code></pre>
-					</section>
-				</section>
+        </code></pre>
+      </section>
+    </section>
 
-        <section>
-          <h2>Advanced Resource Fetching</h2>
-          <p><strong>Caveat:</strong> implementation details are left up to the server</p>
-          <section></section>
-          <section>
-            <h3>Sorting Resources</h3>
-            <p>&nbsp;</p>
-            <pre><code data-trim data-noescape>
+    <section>
+      <h2>Advanced Resource Fetching</h2>
+      <p><strong>Caveat:</strong> implementation details are left up to the server</p>
+      <section></section>
+      <section>
+        <h3>Sorting Resources</h3>
+        <p>&nbsp;</p>
+        <pre><code data-trim data-noescape>
 GET /article?sort=title HTTP/1.1
 Accept: application/vnd.api+json
-            </code></pre>
-          </section>
-          <section>
-            <h3>Filtering Resources</h3>
-            <p>&nbsp;</p>
-            <pre><code data-trim data-noescape>
+        </code></pre>
+      </section>
+      <section>
+        <h3>Filtering Resources</h3>
+        <p>&nbsp;</p>
+        <pre><code data-trim data-noescape>
 GET /article?filter[uid][value]=42 HTTP/1.1
 Accept: application/vnd.api+json
-            </code></pre>
-            <pre class="fragment"><code data-trim data-noescape>
+        </code></pre>
+        <pre class="fragment"><code data-trim data-noescape>
 GET /article?filter[by-created][condition][path]=created
             &filter[by-created][condition][value]=2015-10-10
             &filter[by-created][condition][operator]=<
-            </code></pre>
-          </section>
-          <section>
-            <h3>Pagination</h3>
-            <p>&nbsp;</p>
-            <pre><code data-trim data-noescape>
+        </code></pre>
+      </section>
+      <section>
+        <h3>Pagination</h3>
+        <p>&nbsp;</p>
+        <pre><code data-trim data-noescape>
 GET /article?page[offset]=20
             &page[limit]=10
-            </code></pre>
-          </section>
-        </section>
+        </code></pre>
+      </section>
+    </section>
 
-        <section>
-          <h2>The Very Best Thing About JSON API?</h2>
-          <br/>
-          <h3 class="fragment">It's a standard!</h3>
-        </section>
+    <section>
+      <h2>The Very Best Thing About JSON API?</h2>
+      <h3 class="fragment">It's a standard!</h3>
+      <br/>
+      <p class="fragment">Drupal has the "JSON API" module</p>
+      <p class="fragment">Ember is built to use JSON API by default</p>
+      <p class="fragment">Wordpress has plugins</p>
 
-				<section>
-					<h2>What can we do with it?</h2>
-					<br/>
-					<h3>Demonstration:</h3>
-					<ul>
-						<li>Drupal 8 backend with JSON API contrib module</li>
-						<li>Ember.js frontend application</li>
-					</ul>
-				</section>
+      <aside class="notes">
+        ...in fact, if the libraries are well written you might be able to use JSON API whithout even knowing anything about it.
+      </aside>
 
-				<section>
-          <p>&nbsp;</p>
-					<h2>Useful Links</h2>
-					<ul>
-						<li><a href="http://jsonapi.org">http://jsonapi.org</a></li>
-						<li><a href="https://www.drupal.org/project/jsonapi">https://www.drupal.org/project/jsonapi</a></li>
-					</ul>
-          <div class="fragment">
-            <p>&nbsp;</p>
-            <h2>Thank You!</h2>
-            <p>Slides and example code available on GitHub<br>
-              <a href="https://chris-hamper.github.io/getting-your-content-json-api">https://chris-hamper.github.io/getting-your-content-json-api/</a>
-              <a href="https://github.com/chris-hamper?tab=repositories">https://github.com/chris-hamper?tab=repositories</a>
-            </p>
-          </div>
-				</section>
-			</div>
-		</div>
+    </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <section>
+      <h2>What can we do with it?</h2>
+      <br/>
+      <h3>Demonstration:</h3>
+      <ul>
+        <li>Drupal 8 backend with JSON API contrib module</li>
+        <li>Ember.js frontend application</li>
+      </ul>
+    </section>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+    <section>
+      <h2>Drupal Setup</h2>
+      <section>
+        <h3>1. Install JSONAPI Module</h3>
+        <br/>
+        <pre><code data-trim data-noescape>
+              composer require "drupal/jsonapi:^1.0"
+              drush en -y jsonapi
+        </code></pre>
+      </section>
 
-			  	width: 1200,
-			  	height: 900,
+      <section>
+        <h3>2. CORS Configuration</h3>
+        <pre><code data-trim data-noescape>
+# Add to sites/default/services.yml
+cors.config:
+    enabled: true
+    # Specify allowed headers, like 'x-allowed-header'.
+    allowedHeaders: ['Content-Type', 'Access-Control-Allow-Headers', 'Authorization', 'X-Requested-With', 'X-CSRF-Token']
+    # Specify allowed request methods, specify ['*'] to allow all possible ones.
+    allowedMethods: ['POST', 'GET', 'OPTIONS', 'PATCH', 'DELETE']
+    # Configure requests allowed from specific origins. Ideally this should not be '*', but rather a list of specific hosts.
+    allowedOrigins: ['*']
+    # Sets the Access-Control-Expose-Headers header.
+    exposedHeaders: true
+    # Sets the Access-Control-Max-Age header.
+    maxAge: false
+    # Sets the Access-Control-Allow-Credentials header.
+    supportsCredentials: true
+        </code></pre>
+      </section>
+    </section>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
+    <section>
+      <h2>Ember App Setup</h2>
+      <section>
+        <h3>Install ember-data-drupal addon:</h3>
+        <pre><code>ember install ember-data-drupal</code></pre>
+      </section>
+      <section>
+        <h3>Create an ember-data-drupal adapter:</h3>
+        <pre><code data-trim data-noescape>
+// app/adapters/application.js
 
-            Reveal.addEventListener('first-slide', function() {
-              console.log( '"first-slide" has fired' );
-              window.top.document.querySelector(".footer .session__title").style.opacity = 0;
-            });
+import DrupalJSONAPIAdapter from 'ember-data-drupal/adapter';
+export default DrupalJSONAPIAdapter.extend({
+  host: 'http://www.yourbackendsite.com',
+  namespace: 'jsonapi'
+});
+        </code></pre>
+      </section>
+      <section>
+        <h3>Create an ember-data-drupal serializer:</h3>
+        <pre><code data-trim data-noescape>
+// app/serializers/application.js
 
-            Reveal.addEventListener('past-first-slide', function() {
-              console.log( '"past-first-slide" has fired' );
-              window.top.document.querySelector(".footer .session__title").style.opacity = 1;
-            });
-		</script>
-	</body>
+import DrupalJSONAPISerializer from 'ember-data-drupal/serializer';
+export default DrupalJSONAPISerializer.extend();
+        </code></pre>
+      </section>
+      <section>
+        <h3>Configure resource types to use:</h3>
+        <pre><code data-trim data-noescape>
+// config/environment.js
+
+var ENV = {
+  ...
+  drupalEntityModels: {
+    "article": {},
+  }
+}
+        </code></pre>
+      </section>
+      <section>
+        <h3>Set up models, routes, and templates:</h3>
+        <pre><code data-trim data-noescape>
+// app/models/article.js
+import DS from 'ember-data';
+export default DS.Model.extend({
+  uuid: DS.attr(),
+  title: DS.attr(),
+  body: DS.attr()
+});
+
+// app/routes/article.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return this.get('store').findRecord('article', params.uuid);
+  }
+});        </code></pre>
+      </section>
+    </section>
+
+    <section>
+      <h2>Demo Time!</h2>
+    </section>
+
+    <section>
+      <p>&nbsp;</p>
+      <h2>Useful Links</h2>
+      <ul>
+        <li><a href="http://jsonapi.org">http://jsonapi.org</a></li>
+        <li><a href="https://www.drupal.org/project/jsonapi">https://www.drupal.org/project/jsonapi</a></li>
+        <li><a href="https://guides.emberjs.com/v2.11.0/models/#toc_convention-over-configuration-with-json-api">https://guides.emberjs.com/v2.11.0/models/#toc_convention-over-configuration-with-json-api</a></li>
+        <li><a href="https://www.npmjs.com/package/ember-data-drupal">https://www.npmjs.com/package/ember-data-drupal</a></li>
+      </ul>
+      <div class="fragment">
+        <p>&nbsp;</p>
+        <h2>Thank You!</h2>
+        <p>Slides and example code available on GitHub<br>
+          <a href="https://chris-hamper.github.io/getting-your-content-json-api">https://chris-hamper.github.io/getting-your-content-json-api/</a>
+          <a href="https://github.com/chris-hamper/drupal-ember-jsonapi-demo">https://github.com/chris-hamper/drupal-ember-jsonapi-demo</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
+
+    width: 1200,
+    height: 900,
+
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ]
+  });
+
+  Reveal.addEventListener('first-slide', function() {
+    console.log( '"first-slide" has fired' );
+    window.top.document.querySelector(".footer .session__title").style.opacity = 0;
+  });
+
+  Reveal.addEventListener('past-first-slide', function() {
+    console.log( '"past-first-slide" has fired' );
+    window.top.document.querySelector(".footer .session__title").style.opacity = 1;
+  });
+</script>
+</body>
 </html>
