@@ -292,6 +292,9 @@ body {
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
+.reveal.slide {
+  cursor: url("../../img/laser-pointer-32.png") 16 16, auto; }
+
 .footer {
   color: #888; }
 
