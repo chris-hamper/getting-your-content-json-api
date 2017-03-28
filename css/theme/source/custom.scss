@@ -88,6 +88,7 @@ section.has-light-background {
 	position: absolute;
 	bottom: 0;
 	right: 5em;
+	transition: opacity 0.5s ease-in-out 0.5s;
 }
 .footer .session__title, .footer .session__presenter {
 	display: inline-block;
@@ -100,4 +101,21 @@ ul.spaced li {
 
 .reveal pre code {
 	max-height: 30em;
+}
+
+.reveal section img {
+	margin: 15px 15px;
+	background: none;
+	border: none;
+	box-shadow: none;
+}
+
+.reveal section .session--info--front {
+/*	position: absolute;
+	bottom: 0;
+	right: 0;*/
+
+	img {
+		margin: 15px -7px;
+	}
 }
