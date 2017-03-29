@@ -290,6 +290,10 @@ cors.config:
     <section>
       <h2>Ember.js App Setup</h2>
       <section>
+        <h3>Create Ember app and dev stack:</h3>
+        <pre><code>ember init</code></pre>
+      </section>
+      <section>
         <h3>Install ember-data-drupal addon:</h3>
         <pre><code>ember install ember-data-drupal</code></pre>
       </section>
@@ -299,6 +303,7 @@ cors.config:
 // app/adapters/application.js
 
 import DrupalJSONAPIAdapter from 'ember-data-drupal/adapter';
+
 export default DrupalJSONAPIAdapter.extend({
   host: 'http://www.yourbackendsite.com',
   namespace: 'jsonapi'
@@ -356,25 +361,23 @@ export default Ember.Route.extend({
     <section>
       <h2>Useful Links</h2>
       <ul>
-        <li><a href="http://jsonapi.org">http://jsonapi.org</a></li>
-        <li><a href="https://www.drupal.org/project/jsonapi">https://www.drupal.org/project/jsonapi</a></li>
-        <li><a href="https://guides.emberjs.com/v2.11.0/models/#toc_convention-over-configuration-with-json-api">https://guides.emberjs.com/v2.11.0/models/#toc_convention-over-configuration-with-json-api</a></li>
-        <li><a href="https://www.npmjs.com/package/ember-data-drupal">https://www.npmjs.com/package/ember-data-drupal</a></li>
+        <li><a target="_blank" href="http://jsonapi.org">http://jsonapi.org</a></li>
+        <li><a target="_blank" href="https://www.drupal.org/project/jsonapi">https://www.drupal.org/project/jsonapi</a></li>
+        <li><a target="_blank" href="https://guides.emberjs.com/v2.12.0/models/#toc_convention-over-configuration-with-json-api">https://guides.emberjs.com/v2.12.0/models/#toc_convention-over-configuration-with-json-api</a></li>
+        <li><a target="_blank" href="https://www.npmjs.com/package/ember-data-drupal">https://www.npmjs.com/package/ember-data-drupal</a></li>
       </ul>
     </section>
     <section>
       <h2>Thank You!</h2>
       <p>Slides and example code available on GitHub<br>
-        <a href="https://chris-hamper.github.io/getting-your-content-json-api">https://chris-hamper.github.io/getting-your-content-json-api/</a>
-        <a href="https://github.com/chris-hamper/drupal-ember-jsonapi-demo">https://github.com/chris-hamper/drupal-ember-jsonapi-demo</a>
+        <a target="_blank" href="https://chris-hamper.github.io/getting-your-content-json-api">https://chris-hamper.github.io/getting-your-content-json-api/</a>
+        <a target="_blank" href="https://github.com/chris-hamper/drupal-ember-jsonapi-demo">https://github.com/chris-hamper/drupal-ember-jsonapi-demo</a>
       </p>
       <p>&nbsp;</p>
       <h3>Get in Touch:</h3>
-        <p>
-          <span style="float: left;">drupal.org/u/hampercm</span>
-          <span style="float: right;">chris.hamper@acquia.com</span>
-        </p>
-        <p style="clear: both; padding-top: 0.67em;">@hampercm</p>
+        <p style="margin-bottom: 0.5em">drupal.org/u/hampercm</p>
+        <p style="margin-bottom: 0.5em">@hampercm</p>
+        <p>chris.hamper@acquia.com</p>
     </section>
   </div>
 </div>
