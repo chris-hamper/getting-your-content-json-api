@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="slides">
+  <section class="slides">
     <section data-state="first-slide">
       <h1 style="text-transform: none !important">Getting Your Content Where You Need It</h1>
       <h2 style="text-transform: none !important">&mdash; with &mdash;</h2>
@@ -62,10 +62,36 @@
       <h2>What Does JSON API Enable?</h2>
       <h3>Content/data interchange between two disparate systems</h3>
       <ul>
-        <li class="fragment">Communicate across CMSs, JavaScript frameworks, etc.</li>
-        <li class="fragment">Decoupled frontend architectures</li>
-        <li class="fragment">Multi-channel content</li>
+        <li>Communicate across CMSs, JavaScript frameworks, etc.</li>
+        <li>Decoupled frontend architectures</li>
+        <li>Multi-channel content</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Why Not Just Use Core REST?</h2>
+      <section>
+        <h3>Collections of entities are a pain:</h3>
+        <ul>
+          <li>Need to create REST export Views</li>
+          <li>Need separate export for each entity type, sort, etc.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Handling interrelated data is a pain:</h3>
+        <p>To get all information for an Article node:</p>
+        <ol>
+          <li><code>GET /node/1</code></li>
+          <li class="fragment"><code>GET /user/123</code></li>
+          <li class="fragment"><code>GET /taxonomy/term/40</code></li>
+          <li class="fragment"><code>GET /taxonomy/term/41</code></li>
+          <li class="fragment"><code>GET /taxonomy/term/42</code></li>
+        </ol>
+
+        <aside class="notes">
+          This requires separate round-trips to the server, bootstrap Drupal each time, increases load on server.
+        </aside>
+      </section>
     </section>
 
     <section>
@@ -335,14 +361,20 @@ export default Ember.Route.extend({
         <li><a href="https://guides.emberjs.com/v2.11.0/models/#toc_convention-over-configuration-with-json-api">https://guides.emberjs.com/v2.11.0/models/#toc_convention-over-configuration-with-json-api</a></li>
         <li><a href="https://www.npmjs.com/package/ember-data-drupal">https://www.npmjs.com/package/ember-data-drupal</a></li>
       </ul>
-      <div class="fragment">
-        <p>&nbsp;</p>
-        <h2>Thank You!</h2>
-        <p>Slides and example code available on GitHub<br>
-          <a href="https://chris-hamper.github.io/getting-your-content-json-api">https://chris-hamper.github.io/getting-your-content-json-api/</a>
-          <a href="https://github.com/chris-hamper/drupal-ember-jsonapi-demo">https://github.com/chris-hamper/drupal-ember-jsonapi-demo</a>
+    </section>
+    <section>
+      <h2>Thank You!</h2>
+      <p>Slides and example code available on GitHub<br>
+        <a href="https://chris-hamper.github.io/getting-your-content-json-api">https://chris-hamper.github.io/getting-your-content-json-api/</a>
+        <a href="https://github.com/chris-hamper/drupal-ember-jsonapi-demo">https://github.com/chris-hamper/drupal-ember-jsonapi-demo</a>
+      </p>
+      <p>&nbsp;</p>
+      <h3>Get in Touch:</h3>
+        <p>
+          <span style="float: left;">drupal.org/u/hampercm</span>
+          <span style="float: right;">chris.hamper@acquia.com</span>
         </p>
-      </div>
+        <p style="clear: both; padding-top: 0.67em;">@hampercm</p>
     </section>
   </div>
 </div>
