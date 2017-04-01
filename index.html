@@ -239,7 +239,12 @@ Accept: application/vnd.api+json
         <h3>Sorting Resources</h3>
         <p>&nbsp;</p>
         <pre><code data-trim data-noescape>
-GET /article?sort=title HTTP/1.1
+GET /article?sort[sort-title][path]=title HTTP/1.1
+Accept: application/vnd.api+json
+        </code></pre>
+        <pre class="fragment"><code data-trim data-noescape>
+GET /article?sort[sort-title][path]=title&
+             sort[sort-title][direction]=DESC HTTP/1.1
 Accept: application/vnd.api+json
         </code></pre>
       </section>
