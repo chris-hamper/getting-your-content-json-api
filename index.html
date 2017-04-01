@@ -60,9 +60,9 @@
 
     <section data-state="past-first-slide">
       <h2>What Does JSON API Enable?</h2>
-      <h3>Content/data interchange between two disparate systems</h3>
+      <h3>Content/data interchange between disparate systems</h3>
       <ul>
-        <li>Communicate across CMSs, JavaScript frameworks, etc.</li>
+        <li>Communicate across CMSs, Frameworks, Languages, etc.</li>
         <li>Decoupled frontend architectures</li>
         <li>Multi-channel content</li>
       </ul>
@@ -70,6 +70,29 @@
 
     <section>
       <h2>Why Not Just Use Core REST?</h2>
+      <section>
+        <h3>Configuration is a pain:</h3>
+        <img src="img/rest-ui.png" style="float: left; width: 45%">
+        <p>&nbsp;<br>&nbsp;</p>
+        <pre><code data-trim data-noescape>
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - node
+    - serialization
+id: entity.node
+plugin_id: 'entity:node'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+        </code></pre>
+      </section>
       <section>
         <h3>Collections of entities are a pain:</h3>
         <ul>
@@ -92,6 +115,20 @@
           This requires separate round-trips to the server, bootstrap Drupal each time, increases load on server.
         </aside>
       </section>
+    </section>
+
+    <section>
+      <h2>That Doesn't Sound Like Much Fun</h2>
+      <h3>How About JSON API?</h3>
+    </section>
+
+    <section>
+      <h2>JSON API On Drupal</h2>
+      <ul>
+        <li>Enabled simply by installing a contrib module</li>
+        <li>Uses Drupal's Users & Permissions</li>
+        <li>Gives you all the power of the JSON API standard</li>
+      </ul>
     </section>
 
     <section>

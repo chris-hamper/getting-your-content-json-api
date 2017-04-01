@@ -99,8 +99,12 @@ ul.spaced > li {
 	margin-bottom: 0.75em;
 }
 
-.reveal pre code {
-	max-height: 30em;
+.reveal pre {
+	box-shadow: none;
+
+	code {
+		max-height: 30em;
+	}
 }
 
 .reveal section img {
@@ -111,11 +115,12 @@ ul.spaced > li {
 }
 
 .reveal section .session--info--front {
-/*	position: absolute;
-	bottom: 0;
-	right: 0;*/
+	/*	position: absolute;
+        bottom: 0;
+        right: 0;*/
 
 	img {
 		margin: 15px -7px;
 	}
 }
+
